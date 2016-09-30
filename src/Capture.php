@@ -217,7 +217,7 @@ class Capture
             file_put_contents($jobPath, $resultString);
         }
 
-        $command = sprintf("%sphantomjs %s", $this->binPath, $jobPath);
+        $command = sprintf("%sphantomjs --ignore-ssl-errors=true %s", $this->binPath, $jobPath);
         $result = exec(escapeshellcmd($command));
 
         return file_exists($this->imageLocation);
